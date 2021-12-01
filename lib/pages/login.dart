@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+
 import '../components/Welcome.dart';
 
+import './signup.dart';
+
 class Login extends StatelessWidget {
+  final VoidCallback gotoRegister;
+  Login(this.gotoRegister);
   final _loginWelcomeText = [
     {
       'text': 'Hello',
@@ -135,7 +140,9 @@ class Login extends StatelessWidget {
                 width: 5.0,
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  gotoRegister();
+                },
                 child: Text(
                   'Register',
                   style: TextStyle(

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../components/Welcome.dart';
 
 class Signup extends StatelessWidget {
+  final VoidCallback gotoLogin;
+  Signup(this.gotoLogin);
   final _signupWelcomeText = [
     {
       'text': 'Signup',
@@ -79,29 +81,34 @@ class Signup extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20.0),
-                Container(
-                  height: 60.0,
-                  color: Colors.transparent,
+                GestureDetector(
+                  onTap: () {
+                    gotoLogin();
+                  },
                   child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1.0,
-                        style: BorderStyle.solid,
+                    height: 60.0,
+                    color: Colors.transparent,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 1.0,
+                          style: BorderStyle.solid,
+                        ),
+                        borderRadius: BorderRadius.circular(50.0),
                       ),
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Center(
-                          child: Text(
-                            'Login',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20.0),
-                          ),
-                        )
-                      ],
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Center(
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20.0),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 )

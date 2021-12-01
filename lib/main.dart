@@ -26,8 +26,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool _isRegister = false;
+  void _toggleRegister() {
+    setState(() {
+      _isRegister = !_isRegister;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(resizeToAvoidBottomInset: false, body: Login());
+    return Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: _isRegister ? Login(_toggleRegister) : Signup(_toggleRegister));
   }
 }
