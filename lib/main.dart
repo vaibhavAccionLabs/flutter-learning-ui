@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'pages/login.dart';
-import 'pages/signup.dart';
+import './auth.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,28 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: new MyHomePage(),
+      title: 'MulBerry',
+      home: new AuthApp(),
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  bool _isRegister = false;
-  void _toggleRegister() {
-    setState(() {
-      _isRegister = !_isRegister;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: _isRegister ? Login(_toggleRegister) : Signup(_toggleRegister));
   }
 }
